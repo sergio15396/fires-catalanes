@@ -1,0 +1,30 @@
+<section class="fires-page">
+  <section class="regions">
+    <h2>Comarques</h2>
+
+    <label for="region">Selecciona una comarca</label>
+
+    <select
+      id="region"
+      #regionSelect
+      [value]="selectedRegion()"
+      (change)="selectRegion(regionSelect.value)"
+    >
+      <option value="" disabled>-- Selecciona una comarca --</option>
+
+      @for (region of regions(); track region) {
+        <option [value]="region">{{ region }}</option>
+      }
+    </select>
+  </section>
+
+  <app-region-fairs-list
+    [fairs]="filteredFairs()"
+    [favoriteFairs]="favoriteFairs()"
+    [favoriteIds]="favoriteIds()"
+    [selectedRegion]="selectedRegion()"
+    [showFavorites]="false"
+    (favoriteAdded)="addFavorite($event)"
+    (favoriteRemoved)="removeFavorite($event)"
+  ></app-region-fairs-list>
+</section>

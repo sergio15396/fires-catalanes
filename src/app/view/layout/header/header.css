@@ -1,0 +1,33 @@
+.header {
+  background: #9f2d20;
+  color: white;
+  padding: 20px 24px;
+  text-align: center;
+  border-bottom: 2px solid #e1d6c8;
+}
+
+h1 {
+  margin: 0 0 14px;
+  font-size: 32px;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 6px;
+  padding: 8px 14px;
+}
+
+a.active,
+a:hover {
+  background: white;
+  color: #9f2d20;
+}

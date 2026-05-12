@@ -1,0 +1,72 @@
+<section class="fairs">
+  <h2>{{ title() }}</h2>
+
+  @if (visibleFairs().length === 0) {
+    <p class="empty">No hi ha fires per mostrar.</p>
+  } @else {
+    <div class="fair-list">
+      @for (fair of visibleFairs(); track fair.activityId) {
+        <article class="fair-card">
+          <div class="fair-header">
+            <h3>{{ fair.activityName }}</h3>
+            <p><strong>Poble:</strong> {{ fair.municipalityName }}</p>
+            <p><strong>Data:</strong> {{ fair.date }}</p>
+          </div>
+
+          <div class="buttons">
+            <button type="button" (click)="toggleInfo(fair.activityId)">
+              {{ openedFairId() === fair.activityId ? 'Amagar informació' : 'Més informació' }}
+            </button>
+
+            @if (showFavorites()) {
+              <button type="button" class="secondary" (click)="removeFavorite(fair)">
+                Treure de favorits
+              </button>
+            } @else {
+              <button
+                type="button"
+                class="secondary"
+                [disabled]="isFavorite(fair)"
+                (click)="addFavorite(fair)"
+              >
+                {{ isFavorite(fair) ? 'Afegida a favorits' : 'Afegir a favorits' }}
+              </button>
+            }
+          </div>
+
+          @if (openedFairId() === fair.activityId) {
+            <div class="details">
+              <p><strong>Nom:</strong> {{ fair.activityName }}</p>
+              <p><strong>Comarca:</strong> {{ fair.regionName }}</p>
+              <p><strong>Poble:</strong> {{ fair.municipalityName }}</p>
+              <p><strong>Data:</strong> {{ fair.date }}</p>
+              <p><strong>Lloc:</strong> {{ fair.location }}</p>
+              <p><strong>Productes:</strong> {{ fair.products }}</p>
+              <p><strong>Sector:</strong> {{ fair.sectorName }}</p>
+              <p><strong>Tipus:</strong> {{ fair.fieldName }}</p>
+              <p><strong>Periodicitat:</strong> {{ fair.periodicityName }}</p>
+              <p><strong>Primer any:</strong> {{ fair.firstYear }}</p>
+              <p><strong>Organitzador:</strong> {{ fair.organizerName }}</p>
+              <p><strong>Adreca organitzador:</strong> {{ fair.organizerAddress }}</p>
+              <p><strong>Telèfon:</strong> {{ fair.organizerPhone }}</p>
+              <p><strong>Email:</strong> {{ fair.email }}</p>
+              <p><strong>Web:</strong> {{ fair.web }}</p>
+
+              @if (fair.nexhibitors) {
+                <p><strong>Expositors:</strong> {{ fair.nexhibitors }}</p>
+              }
+
+              @if (fair.nvisitors) {
+                <p><strong>Visitants:</strong> {{ fair.nvisitors }}</p>
+              }
+
+              @if (fair.surface) {
+                <p><strong>Superfície:</strong> {{ fair.surface }}</p>
+              }
+            </div>
+          }
+        </article>
+      }
+    </div>
+  }
+</section>

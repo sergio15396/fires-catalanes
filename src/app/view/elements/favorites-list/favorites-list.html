@@ -1,0 +1,4 @@
+<section class="favorites-page">
+    <app-region-fairs-list [fairs]="[]" [favoriteFairs]="favoriteFairs()" [favoriteIds]="favoriteIds()"
+        [selectedRegion]="''" [showFavorites]="true" (favoriteRemoved)="removeFavorite($event)"></app-region-fairs-list>
+</section>

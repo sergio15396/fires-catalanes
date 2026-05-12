@@ -1,0 +1,68 @@
+.fairs {
+  background: white;
+  border: 1px solid #ddd3c3;
+  border-radius: 8px;
+  padding: 18px;
+}
+
+h2 {
+  margin: 0 0 18px;
+  color: #9f2d20;
+  font-size: 24px;
+}
+
+.fair-list {
+  display: grid;
+  gap: 14px;
+}
+
+.fair-card {
+  border: 1px solid #e1d6c8;
+  border-radius: 8px;
+  padding: 16px;
+  background: #fffdf9;
+}
+
+h3 {
+  margin: 0 0 10px;
+  color: #333;
+}
+
+p {
+  margin: 6px 0;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+button {
+  border: 0;
+  border-radius: 6px;
+  padding: 9px 12px;
+  background: #9f2d20;
+  color: white;
+  cursor: pointer;
+}
+
+button.secondary {
+  background: #326655;
+}
+
+button:disabled {
+  background: #8f8f8f;
+  cursor: default;
+}
+
+.details {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid #e1d6c8;
+}
+
+.empty {
+  color: #665f55;
+}
