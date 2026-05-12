@@ -4,14 +4,14 @@ import { RegionsList } from './view/elements/regions-list/regions-list';
 import { FavoritesList } from './view/elements/favorites-list/favorites-list';
 
 export const routes: Routes = [
-  // Ruta inicial i redirecció per defecte.
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  // Ruta per defecte. Redirigeix a 'home'.
+  { path: '', component: Home },
 
-  // Pàgines principals de l'aplicació.
-  { path: 'home', component: Home },
+  // Rutes específiques per a les diferents seccions de l'aplicació.
+  { path: 'home', redirectTo: '', pathMatch: 'full' },
   { path: 'fires', component: RegionsList },
   { path: 'favorits', component: FavoritesList },
 
-  // Redirecció en cas d'introduir una ruta no existent.
-  { path: '**', redirectTo: 'home' },
+  // Si l'usuari intenta accedir a una ruta que no existeix, redirigeix a 'home'.
+  { path: '**', redirectTo: '' },
 ];
